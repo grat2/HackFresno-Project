@@ -45,6 +45,10 @@
           content: document.getElementById('message')
         });
 
+        removewindow = new google.maps.InfoWindow({
+          content: 
+        })
+
         google.maps.event.addListener(map, 'click', function(event) {
           marker = new google.maps.Marker({
             position: event.latLng,
