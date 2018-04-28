@@ -1,0 +1,19 @@
+AIzaSyBBz3Rvy8zDhcts999jq96QJhzoPVBjllw   --Google Maps Javascript API key
+
+Project pitch:
+
+Android/web app for keeping track of maintenance tasks for crops
+
+-Main components:
+    *Javascript for web frontend
+    *Google Maps API & Google Cloud API in both web and app
+    *HTML for web app
+    *Java for android app
+
+
+-Functions:
+    *Keep track of user's location and allow user to store location along with notes of that location based on the task required
+        for that location
+    *Store location data and notes in cloud to sync data with user's profile across devices
+    *Add users to groups to distribute tasks
+    *designate a manager of all groups that distributes tasks to groups
