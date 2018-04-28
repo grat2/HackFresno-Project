@@ -4,7 +4,7 @@ var infowindow;
 var messagewindow;
 var removewindow;
 
-function initMap(){
+function initMap() {
   var california = {lat: 37.4419, lng: -122.1419};
   map = new google.maps.Map(document.getElementById('map'), {
     center: california,
@@ -20,14 +20,15 @@ function initMap(){
   });
 
   removewindow = new google.maps.InfoWindow({
-    content:
-  })
+    content: document.getElementById('removeform')
+  });
 
   google.maps.event.addListener(map, 'click', function(event) {
     marker = new google.maps.Marker({
       position: event.latLng,
       map: map
     });
+
 
     google.maps.event.addListener(marker, 'click', function() {
       infowindow.open(map, marker);
@@ -39,7 +40,15 @@ function initMap(){
   });
 }
 
-function saveData(){
+function removeMarker() {
+  marker.setMap(null);
+}
+
+function removeclose() {
+  removewindow.close();
+}
+
+function saveData() {
   var name = escape(document.getElementById('notes').value);
   var type = document.getElementById('type').value;
   var latlng = marker.getPosition();
@@ -55,12 +64,12 @@ function saveData(){
   });
 }
 
-function downloadUrl(url, callback){
+function downloadUrl(url, callback) {
   var request = window.ActiveXObject ?
       new ActiveXObject('Microsoft.XMLHTTP') :
       new XMLHttpRequest;
 
-  request.onreadystatechange = function(){
+  request.onreadystatechange = function() {
     if (request.readyState == 4) {
       request.onreadystatechange = doNothing;
       callback(request.responseText, request.status);
