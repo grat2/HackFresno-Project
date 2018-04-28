@@ -2,7 +2,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <title>From Info Windows to a Database: Saving User-Added Form Data</title>
+    <title>Crop Manager</title>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -21,11 +21,10 @@
     <div id="map" height="460px" width="100%"></div>
     <div id="form">
       <table>
-      <tr><td>Name:</td> <td><input type='text' id='name'/> </td> </tr>
-      <tr><td>Address:</td> <td><input type='text' id='address'/> </td> </tr>
+      <tr><td>Notes:</td> <td><input type='text' id='notes'/> </td> </tr>
       <tr><td>Type:</td> <td><select id='type'> +
-                 <option value='bar' SELECTED>bar</option>
-                 <option value='restaurant'>restaurant</option>
+                 <option value='Pest control' SELECTED>Pest control</option>
+                 <option value='Fertilizer'>Fertilizer</option>
                  </select> </td></tr>
                  <tr><td></td><td><input type='button' value='Save' onclick='saveData()'/></td></tr>
       </table>
@@ -66,12 +65,11 @@
       }
 
       function saveData() {
-        var name = escape(document.getElementById('name').value);
-        var address = escape(document.getElementById('address').value);
+        var name = escape(document.getElementById('notes').value);
         var type = document.getElementById('type').value;
         var latlng = marker.getPosition();
-        var url = 'phpsqlinfo_addrow.php?name=' + name + '&address=' + address +
-                  '&type=' + type + '&lat=' + latlng.lat() + '&lng=' + latlng.lng();
+        var url = 'phpsqlinfo_addrow.php?notes=' + notes + '&type=' + type +
+        '&lat=' + latlng.lat() + '&lng=' + latlng.lng();
 
         downloadUrl(url, function(data, responseCode) {
 
