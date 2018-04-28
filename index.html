@@ -26,7 +26,7 @@
       <table>
       <tr><td>Remove?</td>
                  <tr><td></td><td><input type='button' value='Yes' onclick='removeMarker()'/></td></tr>
-                 <tr><td></td><td><input type='button' value='No' onclick='removeform.close()'/></td></tr>
+                 <tr><td></td><td><input type='button' value='No' onclick='removeclose()'/></td></tr>
     </div>
     <div id="message">Location saved</div>
     <script>
@@ -74,6 +74,10 @@
 
       function removeMarker() {
         marker.setMap(null);
+      }
+
+      function removeclose() {
+        removewindow.close();
       }
 
       function saveData() {
